@@ -8,6 +8,7 @@ import org.springframework.context.annotation.EnableMBeanExport;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -18,9 +19,9 @@ import java.util.Set;
 @Table(name = "job_post")
 public class JobPost {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "job_post_id", nullable = false, updatable = false)
-    private long jobPostId;
+    private UUID jobPostId;
 
     private LocalDate createDate;
     private String jobDescription;

@@ -17,10 +17,12 @@ import java.util.UUID;
 @Table(name = "user_type")
 public class UserType {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_type_id", nullable = false, updatable = false)
-    private UUID userTypeId;
-    @Column(name= "user_type_name" , nullable = false)
+    private int userTypeId;
+
+    @Column(name= "user_type_name" , nullable = false, unique = true)
+    @Enumerated(EnumType.STRING)
     private UserTypeEnum userTypeName;
 
     @OneToMany(mappedBy = "userType")
